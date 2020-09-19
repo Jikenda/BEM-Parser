@@ -1,2 +1,2 @@
 # First-Repo
-Future site of my cyber security project and other repos
+Future site of my cybersecurity project and other repos
