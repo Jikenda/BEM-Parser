@@ -1,0 +1,220 @@
+#!/usr/bin/env python3
+import os
+import sys
+import json
+
+def log_file_path_menu():
+    print("""
+    
+          _____                    _____                    _____          
+         /\    \                  /\    \                  /\    \         
+        /::\    \                /::\    \                /::\____\        
+       /::::\    \              /::::\    \              /::::|   |        
+      /::::::\    \            /::::::\    \            /:::::|   |        
+     /:::/\:::\    \          /:::/\:::\    \          /::::::|   |        
+    /:::/__\:::\    \        /:::/__\:::\    \        /:::/|::|   |        
+   /::::\   \:::\    \      /::::\   \:::\    \      /:::/ |::|   |        
+  /::::::\   \:::\    \    /::::::\   \:::\    \    /:::/  |::|___|______  
+ /:::/\:::\   \:::\ ___\  /:::/\:::\   \:::\    \  /:::/   |::::::::\    \ 
+/:::/__\:::\   \:::|    |/:::/__\:::\   \:::\____\/:::/    |:::::::::\____\
+
+\:::\   \:::\  /:::|____|\:::\   \:::\   \::/    /\::/    / ~~~~~/:::/    /
+ \:::\   \:::\/:::/    /  \:::\   \:::\   \/____/  \/____/      /:::/    / 
+  \:::\   \::::::/    /    \:::\   \:::\    \                  /:::/    /  
+   \:::\   \::::/    /      \:::\   \:::\____\                /:::/    /   
+    \:::\  /:::/    /        \:::\   \::/    /               /:::/    /    
+     \:::\/:::/    /          \:::\   \/____/               /:::/    /     
+      \::::::/    /            \:::\    \                  /:::/    /      
+       \::::/    /              \:::\____\                /:::/    /       
+        \::/____/                \::/    /                \::/    /        
+         ~~                       \/____/                  \/____/         
+                                                                           
+
+
+
+
+
+        by Bryan Charbonneau, Evan Etienne, & Mike Crescenzi
+        
+        
+                                                                               
+                                    #### ##%%                                   
+                                 (###### ##%%%%.                                
+                               ######### ##%%%%%%&                              
+                            (########### ##%%%%%%&&&                            
+                          #############  *#%%%%%%&&&&&@                         
+                       (############(       %%%%%&&&&&@@@                       
+                     #############            /%%&&&&&@@@@@@                    
+                  /############(                 &&&&&@@@@@@@@.                 
+                #############          # #         (&&@@@@@@@@@@@               
+             (#############         #### ##%*         @@@@@@@@@@@@@             
+            ############          ###### ##%%%%         (@@@@@@@@@@@@           
+           (##########*        ######### ##%%%%%%*        @@@@@@@@@@@           
+            ############.    ########### ##%%%%%%&&&    &@@@@@@@@@@@@           
+             ,#########################* ##%%%%%%&&&&&@@@@@@@@@@@@@             
+                #####################      .%%%%%&&&&&@@@@@@@@@@&               
+                  ,###############*           %%%&&&&&@@@@@@@@                  
+                     #############.           %%%&&&&&@@@@@%                    
+                       ,#############       %%%%%&&&&&@@@                       
+                          #############. ##%%%%%%&&&&&%                         
+                            ,########### ##%%%%%%&&&                            
+                               ######### ##%%%%%%#                              
+                                 ,###### ##%%%%                                 
+                                    #### ##%#                                   
+
+
+
+
+        *******************BEM Parser File Path Menu*******************""")
+
+    # print system or app log menu
+    print()
+    choice = input("""Please designate the file path of the log file: """)
+
+    # specify file path of log file
+    log_file_path = input("")
+    if len.choice  >= 1:
+        system_log_menu()
+
+    print("*******************BEM System Log Menu*******************")
+    # print system or app log menu
+    print()
+    choice = input ("""
+                        1: System Logs
+                        2: Application Logs
+                        3: Quit/Log Out
+                        
+                        *Hint - Typical file paths for Linux:
+                        Debian/Ubuntu/Mint - /var/log/apache2/access.log
+                        Redhat/Fedora/CentOS - /var/log/httpd/access_log
+                        
+                        Please make a selection: """)
+
+    # if the choice is 1, 2, or 3 go to the corresponding sub-menu
+    if choice == "1":
+        system_log_menu()
+    elif choice == "2":
+        application_log_menu()
+    elif choice == "3":
+        sys.exit
+    else:
+        # error checking - if they put in nonsense, make sure they know what to do!
+        print("You must only select either 1, 2, or 3.")
+        print("Please try again")
+        # Return to main menu for further options or to quit the program
+        main_menu()
+
+
+def system_log_menu():
+    print("*******************BEM System Log Menu*******************")
+    # print system or app log menu
+    print()
+    choice = input("""
+                        1: Syslog
+                        2: Kern.log
+                        3: Auth.log
+                        4: Back to Main Menu
+
+                        Please enter your log file type: """)
+
+    # if the choice is 1, 2, or 3 go to the corresponding sub-menu
+    if choice == "1":
+        syslog_parser()
+    elif choice == "2":
+        kern_parser()
+    elif choice == "3":
+        auth_parser()
+    elif choice == "4":
+        main_menu()
+    else:
+        # error checking - if they put in nonsense, make sure they know what to do!
+        print("You must only select either 1, 2, or 3.")
+        print("Please try again")
+        # Return to main menu for further options or to quit the program
+        main_menu()
+
+
+def application_log_menu():
+    print("*******************BEM Application Log Menu*******************")
+    # print system or app log menu
+    print()
+    choice = input("""
+                        1: Apache Access.log
+                        2: Back to Main Menu
+                        3: Quit/Log Out
+                        
+                        
+                        *Hint - Typical file paths for Linux:
+                        Debian/Ubuntu/Mint - /var/log/apache2/access.log
+                        Redhat/Fedora/CentOS - /var/log/httpd/access_log
+                        
+                        
+                        Please enter your choice: """)
+
+    # if the choice is 1, 2, or 3 go to the corresponding sub-menu
+    if choice == "1":
+        apache_parser()
+    elif choice == "2":
+        main_menu()
+    elif choice == "3":
+        sys.exit
+    else:
+        # error checking - if they put in nonsense, make sure they know what to do!
+        print("You must only select either 1, 2, or 3.")
+        print("Please try again")
+        # Return to main menu for further options or to quit the program
+        main_menu()
+
+
+# Put LOG FORMAT HERE ex. (frame.number;frame.time;ip.src;tcp.srcport;ip.dst;tcp.dstport;ip.proto;ip.len;Proto;Info)
+
+# SysLog Parser
+def apache_parser():
+    # read log file in from commandline
+    file_path = log_file_path
+    # open the file
+    with open(file_path, 'r') as log_file:
+
+        # intiate line number counter to be used in future
+        Line_Number = 1
+
+        # initiate empty dictionary to append separate dictionary for each line item in log
+        apache_log_dict = {}
+
+        # start parsing lines
+        for line in log_file:
+            # strip the line
+            line = line.strip()
+
+            # split line on a space ';'
+            parsed_lines = line.split(';')
+
+            # get the variables by referencing index position in the parsed_lines string
+            LineNumber = parsed_lines[0]
+            Date_Time = parsed_lines[1]
+            Src_IP = parsed_lines[2]
+            Src_Port = parsed_lines[3]
+            Dest_IP = parsed_lines[4]
+            Dest_Port = parsed_lines[5]
+            IP_Proto = parsed_lines[6]
+            IP_Length = parsed_lines[7]
+            Proto = parsed_lines[8]
+            Info = parsed_lines[9]
+
+            # set dictionary Key:Value pairs for each line number
+            dict1 = {"Time_Stamp": Date_Time, "Src_IP": Src_IP, "Src_Port": Src_Port, "Dest_IP" : Dest_IP, "Dest_Port" : Dest_Port, "IP_Proto" : IP_Proto, "IP_Length" : IP_Length, "Proto" : Proto, "Info" : Info}
+            apache_log_dict [LineNumber] = dict1
+
+            # increment line number through loop
+            Line_Number = Line_Number + 1
+
+
+        # send parsed data to a JSON formated file to demonstrate proof of concept
+        out_file = open("apache_log.json", "w")
+        json.dump(apache_log_dict, out_file, indent = 6)
+        out_file.close()
+
+
+
+# Call our functions
+log_file_path_menu()
