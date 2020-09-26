@@ -1,5 +1,5 @@
 # BEM Parser
-BEM Parser is a log file parser for use on auth.log, syslog, kern.log, and Apache access.log files.  This is a project for FullStack Cybersecurity bootcamp and being so, this is only the beginning version.  There are many things that we would like to implement and the script is very scalable by design.  In the current version, the parser will parse any of the 4 log file types specified and will output a JSON formatted file with date/time of the parse in the file name as well as an error.txt file if any errors are encountered.
+BEM Parser is a log file parser for use on auth.log, syslog, kern.log, and Apache access.log files.  This is a project for FullStack Academy Cybersecurity bootcamp and being so, this is only the initial version.  There are many things that we would like to implement and the script is very scalable by design.  In the current version, the parser will parse any of the 4 log file types specified and will output a JSON formatted file with date/time of the parse in the file name as well as an error.txt file if any errors are encountered.
 
 Once downloading the file and giving execute permission, simply call the parser from the command line with the filepath of the log file you wish to parse:
 example:
